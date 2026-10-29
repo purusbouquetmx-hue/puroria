@@ -1,0 +1,306 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURORIA, Los Orígenes</title>
+
+ <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  <!-- FAVICON -->
+ <link rel="icon" type="image/svg+xml" href="imgs/favicon.ico">
+
+  <!-- CSS -->
+<link rel="stylesheet" href="css/bstyle.css">
+</head>
+
+<body id="top">
+<div class="tome-close" id="tomeClose"></div>
+
+<!-- Botón para regresar al Hub Central -->
+<a href="https://purusbouquetmx-hue.github.io/hub/" class="btn-back-to-hub" title="Volver al Universo">
+    <span class="hub-icon">✦</span>
+    <span class="hub-text">EL UNIVERSO</span>
+</a>
+
+  <button id="ritualBtn" class="ritual-btn">
+  Ritual
+</button>
+
+<button id="closeRitualBtn" class="ritual-close-btn">
+  Cerrar tomo
+</button>
+
+<audio id="ritualSound" preload="auto">
+  <source src="sonidos/etherspace.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar">
+  <div class="sparkle-container">
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div>   
+  </div>
+
+  <div class="nav-container">
+    <a href="#home" class="brand">
+  <img src="imgs/logopr.png" alt="Puroria Logo" class="logo-img">
+  <span class="logo-text">PURORIA</span>
+</a>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <div class="nav-links" id="navLinks">
+
+  <!-- Botón de música al lado izquierdo de Inicio -->
+  <div class="music-dropdown">
+    <button class="music-btn" id="musicBtn" title="Melodías de Puroria">
+      <img src="imgs/boladecristal2.png" alt="Música" class="music-icon">
+    </button>
+    <div class="dropdown-menu" id="dropdownMenu">
+      <button class="dropdown-item" data-melody="sonidos/Amb1.mp3">Esencia silenciosa</button>
+      <button class="dropdown-item" data-melody="sonidos/Amb2.mp3">Raices Eternas</button>
+      <button class="dropdown-item" data-melody="sonidos/Amb3.mp3">Susurro Thalássico</button>
+      <button class="dropdown-item" data-melody="sonidos/Amb4.mp3">Umbra Dormida</button>
+      <button class="dropdown-item" data-melody="sonidos/Amb5.mp3">Luz Onírica</button>
+      <button class="dropdown-item" data-melody="sonidos/Amb6.mp3">Equilibrio Primordial</button>
+      <button class="dropdown-item stop-btn" id="stopMelody">Detener reproducción</button>
+    </div>
+  </div> 
+  <a href="#home" class="active">Inicio</a>
+  <a href="#sinopsis">Sinopsis</a>
+  <a href="#esencias">Esencias</a>
+  <a href="#personajes">Guardianes</a>
+  <a href="planos.html">Mundo</a>
+  <a href="ao-or2-puroria.html">AR</a>
+</div>
+<!-- Botón nuevo: Sostener Puroria -->
+      <a href="Sostener-puroria.html" class="nav-merch" title="Llevar un fragmento de Puroria contigo">
+        Sostener
+      </a>
+  </div>  
+</nav>
+
+ 
+
+<!-- ================= HERO ================= -->
+ <section class="hero" id="home">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <img src="imgs/titulo1.png" alt="PURORIA" class="hero-title-img">
+    <h1></h1>
+    <h2>Antes del universo, antes del nombre,<br>existió el equilibrio.</h2>
+  </div>
+</section>
+
+<!-- ================= PARALLAX / SINOPSIS ================= -->
+<section class="parallax-section" id="sinopsis">
+  <video class="video-bg" autoplay="" muted="" loop="" playsinline="">
+    <source src="vids/animsinopsis2.mp4" type="video/mp4">
+  </video>
+
+  <div class="parallax-content">
+    <h2 class="section-title">Sinopsis</h2>
+    
+    <div class="sinopsis-poetica">
+      
+      <!-- SOLO la primera letra de TODA la sinopsis lleva la clase capital-letter -->
+      <p class="intro-line">
+        <span class="capital-letter">A</span>ntes del nombre y del tiempo, existía una quietud que no era vacío.
+        Aetherius permitió. Lumina fue. Y de ese reconocimiento sin palabras nació Puroria:
+        un cosmos donde las esencias fluyen como savia, los aromas narran memorias,
+        y el equilibrio se sostiene sin imponerse.
+        Una epopeya sin héroes ni batallas,
+        solo el testimonio de un universo que aprende a respirar por sí mismo
+        con ternura cósmica.
+      </p>
+
+      <p class="main-body">
+        Aetherius no creó. Permitió. Y en esa permisividad absoluta, surgió Lumina no como respuesta, sino como plenitud inevitable: un destello que hizo posible la diferencia sin imponerla. De ese instante sin tiempo brotó Puroria —un cosmos vivo y consciente donde las esencias fluyen como savia eterna, los aromas narran memorias olvidadas y cada partícula recuerda su origen.
+      </p>
+
+      <p class="main-body">
+        En este mundo sin héroes ni batallas, cuatro conciencias despiertan y tejen la realidad con hilos de luz y memoria. A través de ciclos de reconocimiento, equilibrio y transformación, enfrentan la soledad primordial, el peso de sostener la armonía y la belleza radical de soltar sin poseer. No hay victoria ni derrota: solo el testimonio silencioso de un universo que aprende a respirar por sí mismo, respetando límites con ternura cósmica.
+      </p>
+
+      <p class="closing-line">
+        Puroria: Los Orígenes no es una historia que se cuenta.<br>
+        Es una quietud que se reconoce.<br>
+        Una oda al silencio que crea y al amor que permite florecer.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= SECCION LIBRO ================= -->
+
+<section class="section book-section">
+  <div class="book-container">
+    
+    <div class="book-cover">
+      <img src="imgs/MockUp7LibD.PNG" alt="Libro Puroria">
+    </div>
+
+    <div class="book-info">
+      <h2>Puroria, Los Orígenes</h2>
+      <p class="book-tagline">
+        El inicio del equilibrio.  
+        La memoria antes del universo.
+      </p>
+
+      <p class="book-description">
+        Este libro contiene el relato fundacional de Puroria,  
+        donde las esencias despiertan y el mundo toma forma.
+      </p>
+
+      <a href="libro.html" class="btn">Descubrir el libro</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ================= ESENCIAS ================= -->
+  
+<section class="section dark" id="esencias">
+  <h2 class="section-title">El Sistema de Esencias</h2>
+  <div class="grid">
+    <div class="glass-card">
+      <img src="imgs/Purus%20CristalliniMF.png" alt="Eiran" class="guardian-img">
+      <h3>Purus Cristallini</h3>
+      <p>La coherencia que sostiene la realidad.</p>
+    </div>
+    <div class="glass-card">
+      <img src="imgs/Thalassia.png" alt="Eiran" class="guardian-img">
+      <h3>Thalassia</h3>
+      <p>La memoria líquida del universo.</p>
+    </div>
+    <div class="glass-card">
+      <img src="imgs/NP.png" alt="Eiran" class="guardian-img">
+      <h3>El Núcleo</h3>
+      <p>La conciencia que observa el equilibrio.</p>
+    </div>
+    <div class="glass-card">
+      <img src="imgs/umbraflora%206.png" alt="Eiran" class="guardian-img">
+      <h3>Umbra</h3>
+      <p>El silencio antes de la forma.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= PERSONAJES ================= -->
+ 
+<section class="section dark" id="personajes">
+  <h2 class="section-title">GUARDIANES DE PURORIA</h2>
+
+  <div class="grid">
+    <div class="glass-card guardian-card">
+      <img src="imgs/EiranLimpio.png" alt="Eiran" class="guardian-img">
+      <h3>EIRAN</h3>
+      <p>La coherencia que sostiene la realidad.</p>
+    </div>
+
+    <div class="glass-card guardian-card">
+      <img src="imgs/NairaClean1.png" alt="Naira" class="guardian-img">
+      <h3>NAIRA</h3>
+      <p>La memoria líquida del universo.</p>
+    </div>
+
+    <div class="glass-card guardian-card">
+      <img src="imgs/SeraficoClean.png" alt="Serafico" class="guardian-img">
+      <h3>SERÁFICO</h3>
+      <p>La conciencia que observa el equilibrio.</p>
+    </div>
+
+    <div class="glass-card guardian-card">
+      <img src="imgs/LyrienClean1.png" alt="Kaelreth" class="guardian-img">
+      <h3>Lyrien</h3>
+      <p>Guardiana del Silencio que Ordena..</p>
+    </div>
+
+    <div class="glass-card guardian-card">
+      <img src="imgs/Liora.png" alt="Kaelreth" class="guardian-img">
+      <h3>Liora</h3>
+      <p>Una brotante</p>
+    </div>
+
+    <div class="glass-card guardian-card">
+      <img src="imgs/Caelan.png" alt="Kaelreth" class="guardian-img">
+      <h3>Caelan</h3>
+      <p>Un brotante</p>
+    </div>
+
+  </div>
+  
+</section>
+
+<!-- ================= MUNDO ================= -->
+  
+<section class="section dark" id="lore">
+  <h2 class="section-title">El Mundo de Puroria</h2>
+  <div class="grid">
+    <!-- Esta es la tarjeta que queremos hacer clicable -->
+    <a href="planos.html" class="glass-card link-card" aria-label="Explorar Los Reinos Entrelazados en detalle">
+  <h3>Los Reinos Entrelazados</h3>
+  <p>Planos que existen simultáneamente. → Explora</p>
+</a> 
+
+    <div class="glass-card">
+      <h3>El Ciclo de Equilibrio</h3>
+      <p>El pacto eterno de las esencias.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <h2 class="footer-lumina">LUMINA</h2>
+    <p class="footer-subtext">
+      © 2026 PURORIA <span>||</span> Todos los derechos reservados <span>||</span> Oscar De la Fuente
+    </p>
+  </div>
+</footer>
+
+<audio id="hoverSound" preload="auto">
+  <source src="sonidos/ding.mp3" type="audio/mpeg">
+</audio>
+
+
+<audio id="melodyPlayer" loop="" preload="none"></audio>
+<script src="js/main.js"></script>
+
+
+<!-- ================= BUTTON TOP ================= -->
+<button class="scroll-top-btn" id="scrollTopBtn">↑</button>
+<button id="btnTop">↑</button>
+<script>
+  const btnTop = document.getElementById("btnTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btnTop.classList.add("show");
+    } else {
+      btnTop.classList.remove("show");
+    }
+  });
+
+  btnTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,1264 @@
+:root {
+  --bg-main: radial-gradient(circle at top, #0d1b1e, #050a0c);
+  --text-main: #e6f2f1;
+  --accent: #64ffda;
+}
+
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+}
+
+/* MODO RITUAL */
+body.ritual {
+  --bg-main: radial-gradient(circle at center, #020405, #000000);
+  --text-main: #cdeeee;
+  --accent: #9fffff;
+}
+body.ritual-active::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(100,255,218,0.45) 0%,
+    rgba(0,0,0,0.95) 70%);
+  z-index: 999;
+  pointer-events: none;
+  animation: ritualFlash 1.4s ease forwards;
+}
+
+@keyframes ritualFlash {
+  0%   { opacity: 0; }
+  20%  { opacity: 0.9; }
+  100% { opacity: 0; }
+}
+
+/* ===============================
+   RESET & BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #0d1b1e 0%, #050a0c 100%);
+  color: #e6f2f1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  line-height: 1.6;
+  padding-top: 90px;
+}
+
+section {
+  scroll-margin-top: 110px;
+}
+
+.ritual-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 3.4rem;
+  min-width: max-content;
+  box-sizing: border-box;
+  white-space: nowrap;
+  top: 20px;
+  right: 20px;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  overflow: visible;
+  letter-spacing: 0.16em;
+  border: 1px solid var(--accent);
+  background: rgba(0,0,0,0.4);
+  color: var(--accent);
+  cursor: pointer;
+  z-index: 2000;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.ritual-btn:hover {
+  box-shadow: 0 0 20px var(--accent);
+  transform: scale(1.1);
+}
+
+
+/* ================= RITUAL MODE ================= */
+
+body.ritual-active {
+    animation: ritualBreath 6s ease-in-out infinite;
+  background-color: #050a0c;
+}
+@keyframes ritualBreath {
+  0%, 100% {
+    filter: brightness(0.85) saturate(1.05);
+  }
+  35% {
+    filter: brightness(1) saturate(1.2);
+  }
+}
+
+/* Oscurecer sutilmente todo */
+body.ritual-active .section,
+body.ritual-active .hero,
+body.ritual-active .parallax-section {
+  filter: brightness(0.85) saturate(1.05);
+  transition: filter 1.2s ease;
+}
+
+/* Acentos brillan más */
+body.ritual-active .section-title,
+body.ritual-active .logo-text {
+  text-shadow:
+    0 0 15px rgba(100,255,218,0.4),
+    0 0 30px rgba(100,255,218,0.25);
+}
+
+/* Portal / halo */
+body.ritual-active::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at center,
+      rgba(100,255,218,0.12) 0%,
+      rgba(0,0,0,0.85) 65%);
+  pointer-events: none;
+  z-index: 1;
+  animation: ritualFade 1.4s ease forwards;
+}
+
+@keyframes ritualFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.ritual-btn {
+    display: inline;
+    align-items: stretch;
+    justify-content: center;
+    box-sizing: border-box;
+    white-space: nowrap;
+  padding: 0rem 5.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.16em;
+  background: transparent;
+  color: #64ffda;
+  border: 1px solid rgba(100,255,218,0.4);
+  border-radius: 999px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.ritual-btn:hover {
+  box-shadow:
+    0 0 15px rgba(100,255,218,0.4),
+    0 0 35px rgba(100,255,218,0.25);
+}
+
+/* Estado activado */
+.ritual-btn.activated {
+    animation: ritualPulse 1.2s ease;
+  opacity: 0.6;
+  pointer-events: none;
+  letter-spacing: 0.3em;
+}
+@keyframes ritualPulse {
+  0% {
+    box-shadow: 0 0 0 rgba(100,255,218,0);
+  }
+  50% {
+    box-shadow:
+      0 0 25px rgba(100,255,218,0.6),
+      0 0 60px rgba(100,255,218,0.35);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(100,255,218,0.25);
+  }
+}
+
+/* ===============================
+   NAVBAR original no borrar
+================================ */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2000;
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  backdrop-filter: blur(14px) saturate(180%);
+  background: rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+}
+
+.nav-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.logo-img {
+  height: 42px;
+}
+
+.logo-text {
+  background: linear-gradient(45deg, #e6f2f1, #64ffda);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.nav-links a {
+  font-family: 'Cinzel', serif;
+  text-decoration: none;
+  color: rgba(170, 210, 255, 0.9);
+  opacity: 0.85;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #64ffda;
+  opacity: 1;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.6rem;
+}
+
+/* SPARKLES */
+        .sparkle-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        
+        .sparkle {
+            position: absolute;
+            background: radial-gradient(circle, #64ffda, transparent 70%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: sparkle-animation 4s infinite ease-out;
+            box-shadow: 0 0 8px #64ffda, 0 0 16px rgba(100, 255, 218, 0.7);
+        }
+        
+        @keyframes sparkle-animation {
+            0% { opacity: 0; transform: scale(0.2) translateY(0); }
+            10% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { opacity: 0; transform: scale(1.5) translateY(-15px); }
+        }
+        
+        .sparkle:nth-child(1) { left: 15%; top: 40%; animation-delay: 0s; width: 3px; height: 3px; }
+        .sparkle:nth-child(2) { left: 35%; top: 60%; animation-delay: 0.8s; width: 2px; height: 2px; }
+        .sparkle:nth-child(3) { left: 55%; top: 30%; animation-delay: 1.5s; width: 4px; height: 4px; }
+        .sparkle:nth-child(4) { left: 75%; top: 50%; animation-delay: 0.3s; width: 2.5px; height: 2.5px; }
+        .sparkle:nth-child(5) { left: 90%; top: 70%; animation-delay: 2.1s; width: 3.5px; height: 3.5px; }
+        .sparkle:nth-child(6) { left: 25%; top: 20%; animation-delay: 1.2s; width: 2px; height: 2px; }
+        .sparkle:nth-child(7) { left: 45%; top: 80%; animation-delay: 0.5s; width: 3px; height: 3px; }
+        .sparkle:nth-child(8) { left: 65%; top: 45%; animation-delay: 1.8s; width: 2.5px; height: 2.5px; }
+        .sparkle:nth-child(9) { left: 85%; top: 15%; animation-delay: 0.9s; width: 4px; height: 4px; }
+        .sparkle:nth-child(10) { left: 10%; top: 65%; animation-delay: 2.5s; width: 3px; height: 3px; }
+
+/* ===============================
+   HERO
+================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: url("../imgs/hero-bg.jpg") center/cover no-repeat;
+  overflow: hidden;
+  
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.85)
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+/* IMAGEN DEL TÍTULO */
+.hero-title-img {
+  max-width: 820px;
+  width: 200%;
+  height: auto;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 12px 35px rgba(0,0,0,0.6));
+}
+
+.hero-content h1,
+.hero-content h2 {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: heroTextFade 1.2s ease-out forwards;
+}
+
+/* TEXTO */
+.hero-content h1 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin: 0;
+}
+
+.hero-content h1 {
+  animation-delay: 1.2s;
+}
+
+
+.hero-content h2 {
+  font-size: 1.2rem;
+  max-width: 640px;
+  opacity: 0.9;
+}
+
+.hero-content h2 {
+  animation-delay: 1.6s;
+}
+
+@keyframes heroTextFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.character-info h3 {
+  background: linear-gradient(45deg, #e6f2f1, #64ffda);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* ===============================
+   PARALLAX / SINOPSIS
+================================ */
+.parallax-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.parallax-content {
+  max-width: 920px;
+  padding: 4rem 2.5rem;
+  background: rgba(13, 27, 30, 0.82);
+  border-radius: 30px;
+  text-align: center;
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  z-index: 2;
+}
+
+.parallax-content h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 3.6rem;
+}
+
+.parallax-content p {
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+.section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 7rem 5%;
+  position: relative;
+  z-index: 3;
+}
+
+.section.dark {
+  background: rgba(255,255,255,0.045);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Títulos de sección siempre arriba y centrados */
+.section-title {
+  text-align: center;
+  font-family: 'Cinzel', serif;
+  font-size: 3.6rem;
+  margin-bottom: 4rem;
+  background: linear-gradient(45deg, #e6f2f1, #64ffda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+}
+
+/* ===============================
+   GRID / GLASS CARDS
+================================ */
+/* Grid de tarjetas: tamaño controlado y siempre centrado */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 360px));
+  gap: 40px;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.glass-card {
+  padding: 2.4rem;
+  border-radius: 24px;
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.12),
+    rgba(255,255,255,0.04)
+  );
+  border: 1px solid rgba(255,255,255,0.15);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  transition: 0.45s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.45),
+    0 0 25px rgba(100,255,218,0.25);
+}
+
+.glass-card h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  color: #64ffda;
+  margin-bottom: 1rem;
+}
+
+.glass-card p {
+  font-size: 1.1rem;
+}
+
+/* Para tarjetas sin imagen (como en libro.html) dar más espacio vertical */
+.glass-card:not(:has(.guardian-img)) {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+.glass-card:not(:has(.guardian-img)) h3 {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+}
+
+/* ===============================
+   GUARDIANES / CHARACTERS
+================================ */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.character-card {
+  position: relative;
+  border-radius: 26px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.14);
+  transition: 0.45s ease;
+  cursor: pointer;
+}
+
+.character-card:hover {
+  transform: translateY(-14px) scale(1.03);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.55),
+    0 0 30px rgba(100,255,218,0.35);
+}
+
+.character-img-container {
+  position: relative;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(circle at top, rgba(100,255,218,0.18), transparent 60%),
+    linear-gradient(45deg, #0d1b1e, #1a3a3d, #0d1b1e);
+}
+
+.character-img-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13,27,30,0.15),
+    rgba(13,27,30,0.85)
+  );
+  z-index: 1;
+}
+
+.character-img-container::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, rgba(100,255,218,0.15), transparent 70%);
+  animation: aura 18s linear infinite;
+  z-index: 0;
+}
+
+@keyframes aura {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.character-img {
+  height: 90%;
+  max-width: 95%;
+  object-fit: contain;
+  z-index: 2;
+  transition: transform 0.6s ease;
+  border-radius: 16px;
+}
+
+.character-card:hover .character-img {
+  transform: scale(1.1);
+}
+
+.character-info {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(13,27,30,0.85);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.character-info h3 {
+  font-family: 'Cinzel', serif;
+  font-size: 2.1rem;
+  background: linear-gradient(45deg, #e6f2f1, #64ffda);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.character-info p {
+  font-size: 1.15rem;
+  margin-top: 0.8rem;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.footer {
+  text-align: center;
+  padding: 2.5rem;
+  background: rgba(0,0,0,0.35);
+}
+
+/* ===============================
+   SCROLL TOP
+================================ */
+.scroll-top-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(13,27,30,0.9);
+  color: #64ffda;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.4s;
+  z-index: 3000;
+}
+
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(13,27,30,0.95);
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .hero-content h1 {
+    font-size: 3.4rem;
+  }
+
+  .character-img-container {
+    height: 320px;
+  }
+}
+
+/* ===============================
+   GUARDIANES - IMÁGENES
+================================ */
+
+.guardian-card {
+  text-align: center;
+}
+
+.guardian-img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+  margin-bottom: 1.2rem;
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.5));
+  transition: transform 0.4s ease;
+}
+
+.guardian-card:hover .guardian-img {
+  transform: scale(1.05);
+}
+/* ===============================
+   HERO – ANIMACIONES
+================================ */
+
+.hero-title-img {
+  opacity: 0;
+  transform: translateY(20px) scale(0.98);
+  animation: heroImageFade 1.6s ease-out forwards,
+             heroFloat 6s ease-in-out infinite;
+  animation-delay: 0.3s, 2s;
+}
+
+/* Fade + entrada */
+@keyframes heroImageFade {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Flotación suave */
+@keyframes heroFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+/* ===============================
+   SECCIÓN LIBRO
+================================ */
+
+.book-section {
+  background: radial-gradient(circle at top, #0f2a2e, #050b0de7);
+}
+
+.book-container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.book-cover img {
+  width: 100%;
+  max-width: 380px;
+  display: block;
+  margin: auto;
+  filter: drop-shadow(0 20px 50px rgba(0,0,0,0.6));
+  transition: transform 0.6s ease;
+}
+
+.book-cover img:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.book-info h2 {
+  font-family: "Cinzel", serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 1rem;
+}
+
+.book-tagline {
+  font-style: italic;
+  opacity: 0.85;
+  margin-bottom: 1.5rem;
+}
+
+.book-description {
+  max-width: 520px;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+.book-cta {
+  display: inline-block;
+  padding: 0.9rem 2.4rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 500;
+  color: #0d1b1ef5;
+  background: linear-gradient(135deg, #64ffda, #a7e8ff);
+  box-shadow: 0 0 0 rgba(100,255,218,0.6);
+  transition: all 0.4s ease;
+}
+
+.book-cta:hover {
+  box-shadow: 0 0 25px rgba(100,255,218,0.6);
+  transform: translateY(-2px);
+}
+
+/* ===============================
+   HERO VIDEO
+================================ */
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+/* SECCIONES */
+.section {
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    width: 100%;
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(30, 80, 140, 0.75);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+    box-shadow:
+        0 0 20px rgba(100, 180, 255, 0.3),
+        0 10px 30px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(160, 210, 255, 0.4);
+}
+
+/* TEXTOS */
+h1, h2 {
+    margin-bottom: 15px;
+}
+
+.tagline {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.fragment {
+    font-style: italic;
+    line-height: 1.7;
+}
+
+/* BOTONES */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(100, 180, 255, 0.8);
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: rgba(140, 210, 255, 1);
+    box-shadow: 0 0 15px rgba(120, 200, 255, 0.8);
+}
+
+/* CTA */
+.cta {
+    padding-bottom: 120px;
+}
+
+/* ===============================
+   ENTRADA EN VIEWPORT
+================================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===============================
+   GLASS CARD – AURA
+================================ */
+
+.glass-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--x, 50%) var(--y, 50%),
+    rgba(100,255,218,0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+
+.book-cta {
+  position: relative;
+}
+
+.book-cta::after {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 40px;
+  background: radial-gradient(circle, rgba(100,255,218,0.4), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.book-cta:hover::after {
+  opacity: 1;
+}
+
+/* ===============================
+   TRANSICIÓN PORTAL
+================================ */
+
+.portal {
+  position: relative;
+  opacity: 0;
+  filter: blur(8px);
+  transform: scale(0.97);
+  transition: all 1.2s ease;
+}
+
+.portal.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1);
+}
+
+.portal::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(
+    circle,
+    rgba(100,255,218,0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+
+.portal.visible::before {
+  opacity: 1;
+}
+
+/* ===============================
+   AURA DEL LIBRO
+================================ */
+.book-cover {
+  position: relative;
+}
+
+.book-cover::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    circle,
+    rgba(100,255,218,0.25),
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.book-cover:hover::before {
+  opacity: 1;
+}
+
+/* ===============================
+   CIERRE DE TOMO
+================================ */
+
+.tome-close {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(100,255,218,0.15),
+    #050a0c 70%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.5s ease;
+  z-index: 9999;
+}
+
+.tome-close.active {
+  opacity: 1;
+}
+
+.ritual-close-btn {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  padding: 0.7rem 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.3);
+  background: rgba(0,0,0,0.5);
+  color: #e6f2f1;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  z-index: 3001;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+.ritual-close-btn.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ritual-close-btn:hover {
+  box-shadow: 0 0 20px rgba(255,255,255,0.25);
+  transform: scale(1.05);
+}
+/* STARFIELD BACKGROUND */
+.starfield {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    background: radial-gradient(circle at center, #0b1a35, #020612 80%);
+}
+
+.starfield span {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: rgba(180, 220, 255, 0.8);
+    border-radius: 50%;
+    animation: starMove linear infinite;
+}
+
+.starfield span:nth-child(1) { left: 10%; top: 20%; animation-duration: 12s; }
+.starfield span:nth-child(2) { left: 30%; top: 60%; animation-duration: 18s; }
+.starfield span:nth-child(3) { left: 50%; top: 40%; animation-duration: 15s; }
+.starfield span:nth-child(4) { left: 70%; top: 30%; animation-duration: 20s; }
+.starfield span:nth-child(5) { left: 90%; top: 70%; animation-duration: 14s; }
+.starfield span:nth-child(6) { left: 15%; top: 80%; animation-duration: 17s; }
+.starfield span:nth-child(7) { left: 40%; top: 10%; animation-duration: 13s; }
+.starfield span:nth-child(8) { left: 60%; top: 75%; animation-duration: 19s; }
+.starfield span:nth-child(9) { left: 80%; top: 50%; animation-duration: 16s; }
+.starfield span:nth-child(10){ left: 25%; top: 35%; animation-duration: 21s; }
+
+@keyframes starMove {
+    from { transform: translateY(0); opacity: 0.4; }
+    to { transform: translateY(-40px); opacity: 1; }
+}
+/* BOTÓN VOLVER ARRIBA */
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: rgba(100, 180, 255, 0.85);
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 48px;
+    font-size: 20px;
+    text-decoration: none;
+    box-shadow: 0 0 15px rgba(120, 200, 255, 0.7);
+    z-index: 999;
+    transition: 0.3s;
+}
+
+.back-to-top:hover {
+    background: rgba(140, 210, 255, 1);
+    transform: translateY(-3px);
+}
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.btn.secondary {
+    background: rgba(255, 255, 255, 0.2);
+}
+/* ===================================
+   CENTRADO DEFINITIVO DE TÍTULOS Y GRIDS
+   =================================== */
+
+/* Todas las secciones centradas con padding simétrico */
+.section,
+.section.dark,
+.parallax-section {
+  padding: 8rem 5% 6rem;
+  text-align: center !important;
+}
+
+/* Títulos de sección (aplica a ambos estilos: con clase y sin clase) */
+.section-title,
+.parallax-content h2 {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 4rem auto !important;
+  text-align: center !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 3.6rem !important;
+  line-height: 1.2;
+  background: linear-gradient(45deg, #e6f2f1, #64ffda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+}
+
+/* Grid siempre centrado (incluso con 2 tarjetas como en "El Mundo de Puroria") */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 3rem;
+  justify-content: center !important;
+  align-content: center;
+  max-width: 1400px;
+  margin: 0 auto !important;
+  padding: 0 5%;
+}
+
+/* Tarjetas con texto centrado */
+.glass-card,
+.glass-card h3,
+.glass-card p {
+  text-align: center !important;
+}
+
+/* Contenido parallax centrado (sinopsis en ambas páginas) */
+.parallax-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+}
+.parallax-content p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+}
+/* ===================================
+   CENTRADO ABSOLUTO DE TÍTULOS Y GRIDS EN SECCIONES DARK
+   =================================== */
+
+.section.dark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* Centra horizontalmente todo el contenido */
+  text-align: center !important;
+  padding: 120px 5% 80px;     /* Espacio arriba y abajo para que el título quede bien separado */
+}
+
+.section-title {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 60px auto !important;   /* Margen inferior grande para separar del grid */
+  text-align: center !important;
+  font-family: 'Cinzel', serif !important;
+  font-size: 3.8rem !important;
+  line-height: 1.2;
+  background: linear-gradient(45deg, #e6f2f1, #64ffda);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+  text-shadow: 0 0 20px rgba(100, 255, 218, 0.4);
+}
+
+/* Cambiar grid a flex para centrado perfecto incluso con pocas tarjetas */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center !important;   /* Fuerza centrado horizontal */
+  align-items: stretch;
+  gap: 50px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Tarjetas individuales centradas */
+.glass-card {
+  flex: 1 1 300px;              /* Tamaño mínimo y crecimiento controlado */
+  max-width: 360px;
+  text-align: center !important;
+}
+
+/* Botón flotante Top */
+#btnTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  background: linear-gradient(135deg, rgba(100,200,255,0.8), rgba(180,220,255,0.6));
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  font-size: 22px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 12px rgba(100, 200, 255, 0.6);
+  transition: all 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#btnTop:hover {
+  background: rgba(80, 160, 255, 0.9);
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(120, 220, 255, 0.9);
+}
+
+/* visible cuando se hace scroll */
+#btnTop.show {
+  opacity: 1;
+  pointer-events: auto;
+}

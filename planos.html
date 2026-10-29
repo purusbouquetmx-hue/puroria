@@ -1,0 +1,245 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Planos de Puroria</title>
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FAVICON (Sin preload para evitar advertencias en consola) -->
+  <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon.png.html">
+  <link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon.png.html">
+  <link rel="apple-touch-icon" sizes="180x180" href="imgs/favicon.png.html">
+
+  <!-- CSS PRINCIPAL -->
+  <link rel="stylesheet" href="css/bstyle.css">
+  
+  <style>
+    /* 1. Fuerza el scroll vertical y bloquea el horizontal */
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto !important;
+      height: auto !important;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 2. El Overlay Y EL VIDEO deben ser invisibles al mouse para permitir el scroll */
+    .planes-video-overlay,
+    .planes-video-bg {
+      pointer-events: none !important;
+      z-index: -1; /* Asegura que el video y overlay queden detrás de todo */
+    }
+
+    /* 3. Las partículas y elementos de fondo no deben bloquear el scroll */
+    .parallax-bg,
+    .layer,
+    .sparkle-container,
+    .star,
+    .stars {
+      pointer-events: none !important;
+    }
+
+    /* 4. Asegura que la sección hero y el footer estén por encima del video */
+    .planes-hero, .footer {
+      height: auto !important;
+      min-height: 100vh;
+      position: relative;
+      z-index: 1; 
+    }
+    
+    .footer {
+      min-height: auto;
+    }
+  </style>
+</head>
+<body> 
+
+<!-- Video de fondo y Overlay (Movidos al principio para mejor estructura) -->
+<video class="planes-video-bg" autoplay="" muted="" loop="" playsinline="">
+  <source src="vids/animespa.mp4" type="video/mp4">
+  Tu navegador no soporta videos.
+</video>
+<div class="planes-video-overlay"></div>
+
+<nav class="navbar">
+  <div class="sparkle-container">
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div>   
+  </div>
+
+  <div class="nav-container">
+    <!-- LOGO (izquierda) -->
+    <a href="index.htm" class="brand">
+      <img src="imgs/logopr.png" alt="Puroria Logo" class="logo-img">
+      <span class="logo-text">PURORIA</span>
+    </a>
+
+    <!-- BOTÓN HAMBURGUESA (solo visible en móvil) -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- ENLACES (centro) -->
+    <div class="nav-links" id="navLinks">
+      <div class="music-dropdown">
+        <button class="music-btn" id="musicBtn" title="Melodías de Puroria">
+          <img src="imgs/boladecristal2.png" alt="Música" class="music-icon">
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <button class="dropdown-item" data-melody="sonidos/Amb1.mp3">Esencia silenciosa</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb2.mp3">Raices Eternas</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb3.mp3">Susurro Thalássico</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb4.mp3">Umbra Dormida</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb5.mp3">Luz Onírica</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb6.mp3">Equilibrio Primordial</button>
+          <button class="dropdown-item stop-btn" id="stopMelody">Detener reproducción</button>
+        </div>
+      </div> 
+      <a href="index.htm">Inicio</a>
+      <a href="index.htm#sinopsis">Sinopsis</a>
+      <a href="index.htm#esencias">Esencias</a>
+      <a href="index.htm#personajes">Guardianes</a>
+      <a href="planos.html">Mundo</a>
+      <a href="ao-or2-puroria.html">AR</a>
+    </div>
+
+    <!-- BOTÓN SOSTENER (derecha, siempre pegado) -->
+    <a href="Sostener-puroria.html" class="nav-merch" title="Llevar un fragmento de Puroria contigo">
+      Sostener
+    </a>
+  </div>  
+</nav>
+
+<!-- HERO PLANOS -->
+<section class="planes-hero">
+  <div class="stars" id="stars"></div>
+  <div class="planes-content">
+    <h1>Los Reinos Entrelazados</h1>
+    <p class="planes-intro">
+      Puroria respira en varios planos al mismo tiempo.
+      Explora cada uno para comprender su equilibrio.
+    </p>
+
+    <!-- SISTEMA CÓSMICO ORBITAL (El correcto, con los enlaces a los planos) -->
+    <div class="cosmic-system">
+      <!-- Planeta central (Núcleo Primordial) -->
+      <div class="planet">
+        <img src="imgs/Planeta%20Puroria%20c.png" alt="Puroria">
+      </div>
+
+      <!-- Órbita con 5 satélites (distribuidos a 72° cada uno) -->
+      <div class="orbit">
+        <!-- 1. Material (0°) -->
+        <div class="plane-wrapper p1">
+          <a href="plano%20material.html" class="plane material">Material</a>
+        </div>
+        <!-- 2. Thalassia (72°) -->
+        <div class="plane-wrapper p2">
+          <a href="plano%20thalassia.html" class="plane thalassia">Thalassia</a>
+        </div>
+        <!-- 3. Onírico (144°) -->
+        <div class="plane-wrapper p3">
+          <a href="plano%20onirico.html" class="plane onirico">Onírico</a>
+        </div>
+        <!-- 4. Umbraflora (216°) -->
+        <div class="plane-wrapper p4">
+          <a href="plano%20umbraflora.html" class="plane umbraflora">Umbraflora</a>
+        </div>
+        <!-- 5. Purus Cristallini (288°) -->
+        <div class="plane-wrapper p5">
+          <a href="plano_purus.html" class="plane purus">Purus</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="plane-info">
+      <h2>Selecciona un plano</h2>
+      <p>Haz clic en uno de los planos para explorar su esencia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Transición tipo portal -->
+<div class="portal-overlay" id="portalOverlay">
+  <div class="portal-flash"></div>
+</div>
+<audio id="portalSound" src="sonidos/ding.mp3" preload="auto"></audio>
+
+<!-- Sonido ding para clics en esferas -->
+<audio id="dingSound" preload="auto">
+  <source src="sonidos/ding.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 
+  NOTA: SE ELIMINÓ EL SEGUNDO "cosmic-system" QUE ESTABA AQUÍ.
+  Ese segundo sistema (con core-sphere, orbit-ring, etc.) era una versión anterior 
+  que no tenía enlaces y estaba causando el conflicto de capas (z-index) y bloqueando la página.
+-->
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <h2 class="footer-lumina">LUMINA</h2>
+    <p class="footer-subtext">
+      © 2026 PURORIA <span>||</span> Todos los derechos reservados <span>||</span> Oscar De la Fuente
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Transición de portal + sonido ding al clic en cada esfera
+  document.querySelectorAll('.plane-wrapper').forEach(wrapper => {
+    wrapper.addEventListener('click', function(e) {
+      e.preventDefault();
+
+      // Reproducir sonido ding al clic
+      const ding = document.getElementById('dingSound');
+      if (ding) {
+        ding.currentTime = 0;
+        ding.play().catch(err => {
+          console.log("Error reproduciendo ding:", err);
+        });
+      }
+
+      const link = this.querySelector('a');
+      if (!link) return;
+
+      const url = link.href;
+      const overlay = document.getElementById("portalOverlay");
+      const sound = document.getElementById("portalSound");
+
+      overlay.classList.add("active");
+      sound.currentTime = 0;
+      sound.play();
+
+      setTimeout(() => {
+        window.location.href = url;
+      }, 700);
+    });
+  });
+
+  // Generación de estrellas dinámicas
+  const starsContainer = document.getElementById("stars");
+  if (starsContainer) {
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.classList.add("star");
+
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.animationDuration = (10 + Math.random() * 20) + "s";
+
+      starsContainer.appendChild(star);
+    }
+  }
+</script>
+
+<!-- Cloudflare Pages Analytics --><script defer="" src='beacon.min.js' data-cf-beacon='{"token": "0d9441b9d5424d7cb8b2ca318b19647f"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>

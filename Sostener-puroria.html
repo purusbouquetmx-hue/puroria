@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PURORIA, Los Orígenes</title>
+
+  <!-- FUENTES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="css2?family=Inter:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- FAVICON -->
+ <link rel="icon" type="image/svg+xml" href="imgs/favicon.ico">
+
+  <!-- CSS -->
+<link rel="stylesheet" href="css/bstyle.css">
+</head>
+
+<body id="top">
+
+  <!-- Fondo parallax completo (solo UN contenedor) -->
+  <div class="parallax-bg">
+    <div class="layer layer-1" style="background-image: url('imgs/Esencias.jpeg');"></div>
+    <!-- Puedes agregar más capas si quieres -->
+    <!-- <div class="layer layer-2" style="background-image: url('imgs/otra-imagen.jpg');"></div> -->
+  </div>
+
+<nav class="navbar">
+  <div class="sparkle-container">
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div><div class="sparkle"></div><div class="sparkle"></div>
+    <div class="sparkle"></div>   
+  </div>
+
+  <div class="nav-container">
+    <!-- LOGO (izquierda) -->
+    <a href="index.htm" class="brand">
+      <img src="imgs/logopr.png" alt="Puroria Logo" class="logo-img">
+      <span class="logo-text">PURORIA</span>
+    </a>
+
+    <!-- BOTÓN HAMBURGUESA (solo visible en móvil) -->
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- ENLACES (centro) -->
+    <div class="nav-links" id="navLinks">
+      <div class="music-dropdown">
+        <button class="music-btn" id="musicBtn" title="Melodías de Puroria">
+          <img src="imgs/boladecristal2.png" alt="Música" class="music-icon">
+        </button>
+        <div class="dropdown-menu" id="dropdownMenu">
+          <button class="dropdown-item" data-melody="sonidos/Amb1.mp3">Esencia silenciosa</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb2.mp3">Raices Eternas</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb3.mp3">Susurro Thalássico</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb4.mp3">Umbra Dormida</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb5.mp3">Luz Onírica</button>
+          <button class="dropdown-item" data-melody="sonidos/Amb6.mp3">Equilibrio Primordial</button>
+          <button class="dropdown-item stop-btn" id="stopMelody">Detener reproducción</button>
+        </div>
+      </div> 
+      <a href="index.htm">Inicio</a>
+      <a href="index.htm#sinopsis">Sinopsis</a>
+      <a href="index.htm#esencias">Esencias</a>
+      <a href="index.htm#personajes">Guardianes</a>
+      <a href="planos.html">Mundo</a>
+      <a href="ao-or2-puroria.html">AR</a>
+    </div>
+
+    <!-- BOTÓN SOSTENER (derecha, siempre pegado) -->
+    <a href="Sostener-puroria.html" class="nav-merch" title="Llevar un fragmento de Puroria contigo">
+      Sostener
+    </a>
+  </div>  
+</nav>
+
+
+<!-- Sección de Esencias Físicas (actualizada con perfume) -->
+<section class="section dark" id="merch">
+  <h2 class="section-title">Esencias Físicas</h2>
+  <p class="text-center" style="max-width: 700px; margin: 0 auto 2rem;">
+    Lleva un fragmento de Puroria contigo. Pulseras, collares y ahora… el perfume oficial que captura los aromas del cosmos.
+  </p>
+
+  <div class="grid">
+    <!-- Pulsera Material (ya lo tienes) -->
+    <div class="glass-card merch-card">
+      <img src="imgs/pulsera-material.jpg.html" alt="Pulsera Plano Material">
+      <h3>Pulsera Material</h3>
+      <p>Savia eterna y raíces luminosas</p>
+      <p class="price">$550 MXN</p>
+      <a href="https://mpago.la/1KtpKtR" class="btn" target="_blank" rel="noopener noreferrer">
+    Comprar ahora
+  </a>
+</div>
+
+    <!-- Collar Gota Primordial -->
+    <div class="glass-card merch-card">
+      <img src="imgs/collar-gota.jpg.html" alt="Collar Gota Primordial">
+      <h3>Collar Gota Primordial</h3>
+      <p>Resina con gradiente cósmico</p>
+      <p class="price">$1,200 MXN</p>
+      <a href="https://mpago.la/" class="btn" target="_blank" rel="noopener noreferrer">
+    Comprar ahora
+  </a>
+    </div>
+
+    <!-- Perfume Oficial – nuevo producto estrella -->
+    <div class="glass-card merch-card highlight">
+      <img src="imgs/perfume-puroria.jpg.html" alt="Perfume Oficial Puroria">
+      <h3>Perfume Oficial Puroria</h3>
+      <p>La esencia del equilibrio primordial</p>
+      <p class="description">
+        Notas de salida: savia fresca y musgo luminoso<br>
+        Notas de corazón: flor de loto cósmica y ámbar etéreo<br>
+        Notas de fondo: silencio profundo y madera ancestral
+      </p>
+      <p class="price">$1,800 MXN (50 ml)</p>
+      <a href="https://mpago.la/" class="btn" target="_blank" rel="noopener noreferrer">
+    Comprar ahora
+  </a>
+    </div>
+
+    <!-- Fragancias derivadas (mini-set o ediciones limitadas por plano) -->
+    <div class="glass-card merch-card">
+      <img src="imgs/fragancias-planos.jpg.html" alt="Fragancias por Plano">
+      <h3>Fragancias por Plano (set de 4)</h3>
+      <p>Material • Thalassia • Onírico • Umbraflora</p>
+      <p class="price">$2,900 MXN (4 × 10 ml)</p>
+      <a href="https://mpago.la/" class="btn" target="_blank" rel="noopener noreferrer">
+    Comprar ahora
+  </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= RESONANCIAS DE PURORIA ================= -->
+<div class="glass-card merch-card highlight resonancias-card">
+  <img src="imgs/album-cover.jpg.html" alt="Resonancias de Puroria" class="album-art">
+  <h3>Resonancias de Puroria</h3>
+  <p>Demo interactivo – 13 atmósferas primordiales</p>
+  <p class="description">
+    Viaje sonoro instrumental desde el silencio absoluto hasta la liberación cósmica.<br>
+    Inspirado en los orígenes de Puroria: planos, esencias y entidades.
+  </p>
+
+  <div class="resonancias-player">
+    <!-- Reproductor principal -->
+    <audio id="globalPlayer" controls="" preload="none">
+      <div id="demoMessage" style="display: none; text-align: center; margin: 1rem 0; padding: 0.8rem; background: rgba(255, 100, 100, 0.2); border-radius: 8px; color: #ffcccc; font-size: 0.95rem;">
+  🎧 Demo limitado a 30 segundos – ¡Compra el álbum completo para la experiencia inmersiva total!
+</div>
+      <source src="" type="audio/mpeg">
+      Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Lista de tracks clicables -->
+    <ul class="track-list">
+      <li data-src="resonancias/01-El-Silencio-Antes-del-Nombre-(intro-ambiental–quietud-primordial).mp3">
+        <strong>1. El Silencio Antes del Nombre</strong> – Quietud primordial
+      </li>
+      <li data-src="resonancias/02-Permiso-de-Aetherius-(tonalidad-grave-sostén).mp3">
+        <strong>2. Permiso de Aetherius</strong> – Fuerza inconmensurable
+      </li>
+      <li data-src="resonancias/03-El-Destello-de-Lumina-(luz-que-surge–tonos-ascendentes).mp3">
+        <strong>3. Savia Eterna – Plano Material</strong> – Raíces y crecimiento
+      </li>
+      <li data-src="resonancias/04 Savia Eterna – Plano Material (orgánico, raíces, crecimiento) v1.mp3">
+        <strong>4. Memoria Líquida – Thalassia</strong> – Flujo y transformación
+      </li>
+      <li data-src="resonancias/05 Memoria Líquida – Thalassia (agua, flujo, transformación) v1.mp3">
+        <strong>5. Sueño Despierto – Onírico</strong> – Etéreo y vulnerable
+      </li>
+      <li data-src="resonancias/06 Sueño Despierto – Onírico (etéreo, vulnerable, nebuloso) v1.mp3">
+        <strong>6. Silencio que Florece – Umbraflora</strong> – Oscuro y contemplativo
+      </li>
+      <li data-src="resonancias/07 Silencio que Florece – Umbraflora (oscuro, profundo, contemplativo) v1.mp3">
+        <strong>7. Soltar sin Poseer</strong> – Liberación y respiración libre
+      </li>
+      <li data-src="resonancias/08 Soltar sin Poseer (cierre – liberación, respiración libre) v1.mp3">
+        <strong>8. Lumina</strong> – Despertar melancólico de la conciencia
+      </li>
+      <li data-src="resonancias/09 Aetherius v1.mp3">
+        <strong>9. Aetherius</strong> – Permiso divino primordial
+      </li>
+      <li data-src="resonancias/10 Lumina v1.mp3">
+        <strong>10. Naira</strong> – Savia vital nutritiva
+      </li>
+      <li data-src="resonancias/11 Naira v1.mp3">
+        <strong>11. Liora</strong> – Flujo transformador y liberación
+      </li>
+      <li data-src="resonancias/12 Liora v1.mp3">
+        <strong>12. Celean</strong> – Claridad radiante y esencia luminosa
+      </li>
+      <li data-src="resonancias/13 Caelan v1.mp3">
+        <strong>13. Resonancia Colectiva</strong> – Fusión de todos los orígenes
+      </li>
+    </ul>
+
+    <p class="small-note" style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+      Versión demo de 30 segundos. (Extractos o pistas completas). Compra la versión completa por $350 MXN.
+    </p>
+    <a href="TU_LINK_BANDCAMP_O_GUMROAD_O_MERCADO_PAGO.html" class="btn" target="_blank" style="margin-top: 1rem; display: inline-block;">
+      Adquirir álbum completo
+    </a>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-content">
+    <h2 class="footer-lumina">LUMINA</h2>
+    <p class="footer-subtext">
+      © 2026 PURORIA <span>||</span> Todos los derechos reservados <span>||</span> Oscar De la Fuente
+    </p>
+  </div>
+</footer>
+
+<audio id="hoverSound" preload="auto">
+  <source src="sonidos/ding.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="melodyPlayer" loop="" preload="none"></audio>
+<script src="js/main.js"></script>
+
+<!-- ================= BUTTON TOP ================= -->
+<button class="scroll-top-btn" id="scrollTopBtn">↑</button>
+<button id="btnTop">↑</button>
+<script>
+  const btnTop = document.getElementById("btnTop");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+      btnTop.classList.add("show");
+    } else {
+      btnTop.classList.remove("show");
+    }
+  });
+
+  btnTop.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+    // PLAYER DE LISTA DE RESONANCIAS
+    document.addEventListener('DOMContentLoaded', () => {
+    const player = document.getElementById('globalPlayer');
+    const tracks = document.querySelectorAll('.track-list li');
+    const DEMO_DURATION = 30; // segundos (ajusta a 30s como prefieras)
+
+    tracks.forEach(track => {
+      track.addEventListener('click', () => {
+        tracks.forEach(t => t.classList.remove('active'));
+        track.classList.add('active');
+
+        const newSrc = track.getAttribute('data-src');
+        player.src = newSrc;
+        player.load(); // Recarga el audio
+
+        // Reinicia y reproduce
+        player.currentTime = 0;
+        player.play().catch(error => {
+          console.error("Error al reproducir:", error);
+        });
+      });
+    });
+
+    // Monitorea el tiempo y corta el demo
+    player.addEventListener('timeupdate', () => {
+      if (player.currentTime >= DEMO_DURATION) {
+  player.pause();
+  player.currentTime = 0;
+  document.getElementById('demoMessage').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('demoMessage').style.display = 'none';
+  }, 5000); 
+}
+    });
+
+    // Opcional: al terminar naturalmente (si el track es más corto que 18s), pasa al siguiente
+    player.addEventListener('ended', () => {
+      let current = Array.from(tracks).findIndex(t => t.classList.contains('active'));
+      if (current === -1) return;
+      let next = (current + 1) % tracks.length;
+      tracks[next].click();
+    });
+  });
+
+</script>
+
+
+<!-- Cloudflare Pages Analytics --><script defer="" src='beacon.min.js' data-cf-beacon='{"token": "0d9441b9d5424d7cb8b2ca318b19647f"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>

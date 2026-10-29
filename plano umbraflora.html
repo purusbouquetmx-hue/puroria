@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plano Material</title>
+
+  <!-- FUENTES (si las tienes) -->
+  <!-- ... -->
+
+  <!-- FAVICON – limpia y sin preload innecesario -->
+  <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="32x32" href="imgs/favicon.png.html">
+  <link rel="icon" type="image/png" sizes="16x16" href="imgs/favicon.png.html">
+  <link rel="apple-touch-icon" sizes="180x180" href="imgs/favicon.png.html">
+
+  <!-- CSS PRINCIPAL -->
+  <link rel="stylesheet" href="css/bstyle.css">
+</head>
+
+<body class="bg-material">
+
+  <!-- Partículas – solo UN div con id="particles" -->
+  <div id="particles"></div>
+
+  <!-- Capas de parallax – listas para imágenes reales -->
+  <div class="parallax-bg">
+    <!-- Capa 1: fondo lejano (montañas, cielo, paisaje amplio) -->
+    <div class="layer layer-1" style="background-image: url('imgs/umbraflora 2.jpg');"></div>
+    
+    <!-- Capa 2: elementos medios (niebla, árboles lejanos, bruma) -->
+    <div class="layer layer-2" style="background-image: url('imgs/umbraflora 2.jpg');"></div>
+    
+    <!-- Capa 3: elementos cercanos (hojas flotantes, partículas orgánicas – opcional) -->
+    <!-- <div class="layer layer-3" style="background-image: url('imgs/material-close.png');"></div> -->
+  </div>
+<div class="cosmic-clock">
+  <div class="clock-ring"></div>
+  <div class="clock-symbol">🖤</div> <!-- o el símbolo que prefieras -->
+</div>
+<section class="plane-page">
+  <div class="plane-content">
+    <h1>Umbraflora</h1>
+    <p>
+      Umbraflora es el plano profundo, donde las raíces de toda vida se entrelazan
+      en la oscuridad silenciosa. No es un reino de muerte, sino de retorno y
+      transformación. Allí, las esencias descansan antes de volver a brotar
+      en nuevas formas.
+    </p>
+    <a href="planos.html" class="back-button" id="backToPlanos">
+  ← Volver a los planos
+</a>
+  </div>
+</section>
+
+<button id="releaseBtn" class="release-btn">Abraza</button>
+<div id="releaseMessage" class="release-message">
+  Y en ese abrazar… el silencio florece sin ser nombrado.
+  <button id="whisperBtn" class="whisper-btn">Escuchar el susurro del plano</button>
+<audio id="whisperAudio" preload="auto">
+  <source src="sonidos/Plano%20Umbraflora%202.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+
+<div class="essence-fragments">
+  <div class="fragment-card">
+    <img src="imgs/umbraflora2.png" alt="Recuerdo cósmico 1" class="fragment-img">
+    <div class="fragment-caption">La savia que recuerda su primer latido</div>
+  </div>
+
+  <div class="fragment-card">
+    <img src="imgs/umbraflora4.png" alt="Recuerdo cósmico 2" class="fragment-img">
+    <div class="fragment-caption">Raíces que sostienen sin poseer</div>
+  </div>
+
+  <div class="fragment-card">
+    <img src="imgs/umbraflora10.png" alt="Recuerdo cósmico 3" class="fragment-img">
+    <div class="fragment-caption">El pacto que florece en silencio</div>
+  </div>
+</div>
+
+<!-- Modal para zoom (uno solo para todos los planos) -->
+<div id="imageModal" class="image-modal">
+  <span class="modal-close">×</span>
+  <img class="modal-content" id="modalImg">
+  <div id="caption"></div>
+</div>
+
+<div class="plane-narrative">
+  <p class="plane-description">
+    Umbraflora es el reino de las sombras donde la flora oscura guarda el pacto silenciado. Aetherius sostiene aquí la soledad primordial, permitiendo que la transformación nazca del silencio profundo. Lyrien ordena la oscuridad con ternura, recordando que el equilibrio también florece en lo que no se ve.
+  </p>
+  <p class="plane-quote">
+    “La oscuridad no oculta; abraza lo que la luz aún no sabe nombrar.”
+  </p>
+  <p class="plane-trivia">
+    Trivia cósmica: En Umbraflora, las raíces crecen hacia el cielo cuando alguien acepta soltar un miedo que nunca confesó.
+  </p>
+</div>
+
+<!-- Portal de salida -->
+  <div class="portal-exit" id="portalExit"></div>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script>
+    const backBtn = document.getElementById("backToPlanos");
+    const portalExit = document.getElementById("portalExit");
+
+    if (backBtn) {
+      backBtn.addEventListener("click", function(e) {
+        e.preventDefault();
+        portalExit.classList.add("active");
+
+        setTimeout(() => {
+          window.location.href = "planos.html";
+        }, 1000);
+      });
+    }
+
+    // Parallax con mouse en capas (tu código original)
+    document.addEventListener('mousemove', (e) => {
+      const layers = document.querySelectorAll('.layer');
+      const { clientX, clientY } = e;
+      const x = (clientX / window.innerWidth) * 2 - 1;
+      const y = (clientY / window.innerHeight) * 2 - 1;
+
+      layers.forEach((layer, index) => {
+        const depth = (index + 1) * 5; // profundidad ajustable
+        layer.style.transform = `translate(${x * depth}px, ${y * depth}px)`;
+      });
+    });
+
+    // Config para partículas – ajustado para más visibilidad
+  particlesJS('particles', {
+  particles: {
+    number: { value: 60, density: { enable: true, value_area: 800 } },
+    color: { value: '#64ffda' },  // verde-azul para que combine con el tema
+    shape: {
+      type: 'image',
+      image: {
+        src: 'imgs/umbrafl.png',  // ← ruta exacta de tu imagen
+        width: 100,
+        height: 100
+      }
+    },
+    opacity: { value: 0.8, random: true },
+    size: { value: 12, random: true },
+    line_linked: { enable: false },
+    move: {
+      enable: true,
+      speed: 6,
+      direction: 'bottom',
+      random: true,
+      straight: false,
+      out_mode: 'out',
+      bounce: false
+    }
+  },
+  interactivity: {
+    detect_on: 'canvas',
+    events: {
+      onhover: { enable: true, mode: 'bubble' },
+      onclick: { enable: true, mode: 'push' },
+      resize: true
+    },
+    modes: {
+      bubble: { distance: 200, size: 20, duration: 2, opacity: 0.8, speed: 3 },
+      push: { particles_nb: 4 }
+    }
+  },
+  retina_detect: true
+});
+
+// Soltar el límite – versión segura
+document.addEventListener('DOMContentLoaded', () => {
+  const releaseBtn = document.getElementById('releaseBtn');
+  const releaseMessage = document.getElementById('releaseMessage');
+
+  if (!releaseBtn || !releaseMessage) {
+    console.log('Botón o mensaje no encontrados en esta página');
+    return;
+  }
+
+  releaseBtn.addEventListener('click', () => {
+    console.log('Botón clicado – mostrando mensaje'); // para depurar
+    releaseMessage.classList.add('visible');
+    releaseBtn.textContent = 'Ya has soltado…';
+    releaseBtn.disabled = true; // evita clics repetidos
+  });
+});
+
+// Modal de zoom para imágenes de fragmentos
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImg');
+const captionText = document.getElementById('caption');
+const closeBtn = document.querySelector('.modal-close');
+
+document.querySelectorAll('.fragment-card').forEach(card => {
+  card.addEventListener('click', () => {
+    const img = card.querySelector('.fragment-img');
+    modal.style.display = "block";
+    modalImg.src = img.src;
+    captionText.innerHTML = card.querySelector('.fragment-caption').innerHTML;
+  });
+});
+
+closeBtn.onclick = function() { 
+  modal.style.display = "none";
+}
+
+modal.onclick = function(e) {
+  if (e.target == modal) modal.style.display = "none";
+}
+
+// Audio ambiental controlado
+const whisperBtn = document.getElementById('whisperBtn');
+const whisperAudio = document.getElementById('whisperAudio');
+
+if (whisperBtn && whisperAudio) {
+  whisperAudio.volume = 0.4; // volumen bajo por defecto
+
+  whisperBtn.addEventListener('click', () => {
+    if (whisperAudio.paused) {
+      // Fade in
+      whisperAudio.volume = 0;
+      whisperAudio.play().catch(() => {}); // evita error si no interactuó
+      let vol = 0;
+      const fadeIn = setInterval(() => {
+        vol += 0.02;
+        whisperAudio.volume = Math.min(vol, 0.4);
+        if (vol >= 0.4) clearInterval(fadeIn);
+      }, 100);
+      whisperBtn.classList.add('active');
+      whisperBtn.textContent = 'Silenciar susurro';
+    } else {
+      // Fade out
+      let vol = whisperAudio.volume;
+      const fadeOut = setInterval(() => {
+        vol -= 0.02;
+        whisperAudio.volume = Math.max(vol, 0);
+        if (vol <= 0) {
+          whisperAudio.pause();
+          clearInterval(fadeOut);
+        }
+      }, 100);
+      whisperBtn.classList.remove('active');
+      whisperBtn.textContent = 'Escuchar el susurro del plano';
+    }
+  });
+}
+
+  </script>
+
+<!-- Cloudflare Pages Analytics --><script defer="" src='beacon.min.js' data-cf-beacon='{"token": "0d9441b9d5424d7cb8b2ca318b19647f"}'></script><!-- Cloudflare Pages Analytics --></body>
+</html>
